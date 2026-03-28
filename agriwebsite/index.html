@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corn Irrigation Planner – Algeria</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="hero">
+    <div class="hero-icon">🌽</div>
+    <div>
+      <h1>Corn Irrigation Planner</h1>
+      <p>Algeria — Agro-climatic calendar by region</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="fields">
+      <div class="field">
+        <label>Field area</label>
+        <input id="area" type="number" placeholder="Hectares, e.g. 10" min="0.1" step="0.1">
+      </div>
+      <div class="field">
+        <label>Wilaya</label>
+        <select id="wilaya">
+          <option value="01">01 أدرار</option>
+          <option value="02">02 الشلف</option>
+          <option value="03">03 الأغواط</option>
+          <option value="04">04 أم البواقي</option>
+          <option value="05">05 باتنة</option>
+          <option value="06">06 بجاية</option>
+          <option value="07">07 بسكرة</option>
+          <option value="08">08 بشار</option>
+          <option value="09">09 البليدة</option>
+          <option value="10">10 البويرة</option>
+          <option value="11">11 تمنراست</option>
+          <option value="12">12 تبسة</option>
+          <option value="13">13 تلمسان</option>
+          <option value="14">14 تيارت</option>
+          <option value="15">15 تيزي وزو</option>
+          <option value="16" selected>16 الجزائر</option>
+          <option value="17">17 الجلفة</option>
+          <option value="18">18 جيجل</option>
+          <option value="19">19 سطيف</option>
+          <option value="20">20 سعيدة</option>
+          <option value="21">21 سكيكدة</option>
+          <option value="22">22 سيدي بلعباس</option>
+          <option value="23">23 عنابة</option>
+          <option value="24">24 قالمة</option>
+          <option value="25">25 قسنطينة</option>
+          <option value="26">26 المدية</option>
+          <option value="27">27 مستغانم</option>
+          <option value="28">28 المسيلة</option>
+          <option value="29">29 معسكر</option>
+          <option value="30">30 ورقلة</option>
+          <option value="31">31 وهران</option>
+          <option value="32">32 البيض</option>
+          <option value="33">33 إليزي</option>
+          <option value="34">34 برج بوعريريج</option>
+          <option value="35">35 بومرداس</option>
+          <option value="36">36 الطارف</option>
+          <option value="37">37 تندوف</option>
+          <option value="38">38 تيسمسيلت</option>
+          <option value="39">39 الوادي</option>
+          <option value="40">40 خنشلة</option>
+          <option value="41">41 سوق أهراس</option>
+          <option value="42">42 تيبازة</option>
+          <option value="43">43 ميلة</option>
+          <option value="44">44 عين الدفلى</option>
+          <option value="45">45 النعامة</option>
+          <option value="46">46 عين تموشنت</option>
+          <option value="47">47 غرداية</option>
+          <option value="48">48 غليزان</option>
+          <option value="49">49 تيميمون</option>
+          <option value="50">50 برج باجي مختار</option>
+          <option value="51">51 أولاد جلال</option>
+          <option value="52">52 بني عباس</option>
+          <option value="53">53 عين صالح</option>
+          <option value="54">54 عين قزام</option>
+          <option value="55">55 تقرت</option>
+          <option value="56">56 جانت</option>
+          <option value="57">57 المغير</option>
+          <option value="58">58 المنيعة</option>
+          <option value="59">59 آفلو</option>
+          <option value="60">60 بريكة</option>
+          <option value="61">61 القنطرة</option>
+          <option value="62">62 بير العاتر</option>
+          <option value="63">63 العريشة</option>
+          <option value="64">64 قصر الشلالة</option>
+          <option value="65">65 عين وسارة</option>
+          <option value="66">66 مسعد</option>
+          <option value="67">67 قصر البخاري</option>
+          <option value="68">68 بوسعادة</option>
+          <option value="69">69 الأبيض سيدي الشيخ</option>
+        </select>
+      </div>
+    </div>
+    <div id="zone-display"></div>
+    <div id="error-msg" class="error"></div>
+    <button class="btn" onclick="calculateCalendar()">Generate Irrigation Calendar →</button>
+  </div>
+
+  <div id="output">
+    <div class="card">
+      <div class="result-header">
+        <div class="result-title" id="result-title"></div>
+        <div class="result-meta" id="result-meta"></div>
+      </div>
+      <div class="summary-grid" id="summary-grid"></div>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>ETc (mm/month)</th>
+              <th>Net Need (mm)</th>
+              <th>Water / Month (m³)</th>
+              <th>Irrigations</th>
+              <th>Per Irrigation (m³)</th>
+              <th>Volume Bar</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
