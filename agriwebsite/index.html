@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corn Irrigation Planner – Algeria</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="hero">
+    <div class="hero-icon">🌽</div>
+    <div>
+      <h1>Corn Irrigation Planner</h1>
+      <p>Algeria — Agro-climatic calendar by region</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="fields">
+      <div class="field">
+        <label>Field area</label>
+        <input id="area" type="number" placeholder="Hectares, e.g. 10" min="0.1" step="0.1">
+      </div>
+      <div class="field">
+        <label>Wilaya</label>
+        <select id="wilaya">
+          <optgroup label="Zone 1 — Littoraux et telliens">
+            <option value="16">16 الجزائر</option>
+            <option value="31">31 وهران</option>
+            <option value="23">23 عنابة</option>
+            <option value="21">21 سكيكدة</option>
+            <option value="22">22 سيدي بلعباس</option>
+            <option value="25">25 قسنطينة</option>
+          </optgroup>
+          <optgroup label="Zone 2 — Hauts plateaux et steppiques">
+            <option value="19">19 سطيف</option>
+            <option value="17">17 الجلفة</option>
+            <option value="12">12 تبسة</option>
+            <option value="20">20 سعيدة (عين صفراء)</option>
+            <option value="03">03 الأغواط</option>
+            <option value="07">07 بسكرة</option>
+            <option value="08">08 بشار</option>
+          </optgroup>
+          <optgroup label="Zone 3 — Saharien">
+            <option value="01">01 أدرار</option>
+            <option value="30">30 ورقلة</option>
+            <option value="47">47 غرداية</option>
+            <option value="55">55 تقرت</option>
+            <option value="53">53 عين صالح</option>
+            <option value="11">11 تمنراست</option>
+            <option value="37">37 تندوف</option>
+            <option value="56">56 جانت</option>
+          </optgroup>
+        </select>
+      </div>
+    </div>
+    <div id="zone-display"></div>
+    <div id="error-msg" class="error"></div>
+    <button class="btn" onclick="calculateCalendar()">Generate Irrigation Calendar →</button>
+  </div>
+
+  <div id="output">
+    <div class="card">
+      <div class="result-header">
+        <div class="result-title" id="result-title"></div>
+        <div class="result-meta" id="result-meta"></div>
+      </div>
+      <div class="summary-grid" id="summary-grid"></div>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>ETc (mm/month)</th>
+              <th>Net Need NI (mm)</th>
+              <th>Water / Month (m³)</th>
+              <th>Irrigations</th>
+              <th>Per Irrigation (m³)</th>
+              <th>Frequency</th>
+              <th>Volume Bar</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
